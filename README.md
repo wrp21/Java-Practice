@@ -40,11 +40,11 @@
 
 ### 문자열(String)
 -----------------------------------------------
-`java
+```java
 String textHello = "Hello";
 String textJava = new String(" Java");
 String textHelloJava = textHello + textJava;
-`
+```
 - 문자열 자료형(String)은 기본자료형이 아니라 객체임.
 - 객체 생성하여 할당하는 방식과 리터럴 형식으로 값을 할당하는 것에는 차이가 있음
   - 리터럴 방식은 객체 생성없이 intern pool에 저장하고, 동일한 값 할당시 cache된 값을 할당
@@ -54,7 +54,7 @@ String textHelloJava = textHello + textJava;
 ----------------------------------------------------------------------------
 #### equals
 
-`java
+```java
 String text1 = "text";
 String text2 = "text";
 String text3 = new String("text");
@@ -63,72 +63,72 @@ System.out.println(text1.equals(text2)); // true
 System.out.println(text1.equals(text3)); // true
 System.out.println(text1 == text3);      // false
 System.out.println(text1 == text4);      // false
-`
+```
 - equals 메소드는 두 문자열의 값 일치 여부를 출력한다.
 - `==` 연산은 두 개의 데이터 타입이 같은지를 판별하기 때문에 위의 경우 false를 출력함
 
 #### indexOf
-`java
+```java
 String message = "I like Java";
 System.out.println(message.indexOf("like"));  // 2
 System.out.println(message.indexOf("w"));     // -1
-`
+```
 - indexOf 메소드는 문자열의 시작위치의 인덱스를 반환한다.
 - 없는 문자열을 가리키면 -1 을 반환한다.
 
 
 #### contains
-`java
+```java
 String msgHello = "Hello World";
 System.out.println(msgHello.contains("Hello"));
 System.out.println(msgHello.contains("hello"));
 System.out.println(msgHello.contains("Hll"));
-`
+```
 - 지정한 문자열의 존재 여부 출력(boolean)
 - 대소문자 구별
 
 
 #### charAt
-`java
+```java
 String msgHello = "Hello World";
 System.out.println(msgHello.charAt(0)); // H 출력
 System.out.println(msgHello.charAt(6)); // W 출력
 System.out.println(msgHello.charAt(11)); // java.lang.StringIndexOutOfBoundsException: String index out of range
-`
+```
 - 문자열의 변수의 지정한 인덱스의 내용(문자, char) 출력
 - 인덱스 범위를 벗어나면 에러 출력
 
 
 #### replaceAll 
-`java
+```java
 String msgHello = "Hello World";
 System.out.println(msgHello.replaceAll("World", "World1"));
 // Hello World1
-`
+```
 - 특정 문자열을 다른 문자열로 바꾼 값을 반환한다. 
 
 #### substring
-`java
+```java
 String msgHello = "Hello World";
 System.out.println(msgHello.substring(0)); // Hello World
 System.out.println(msgHello.substring(6)); // World
 System.out.println(msgHello.substring(0, 4)); // Hell
-`
+```
 - 지정한 인덱스를 시작으로 문자열을 출력함
 - `substring(시작위치)` : 시작위치 인덱스부터 끝까지 반환
 - `substring(시작, 끝)` : 시작 인덱스부터 끝 - 1 까지 반환
 
 #### toUpperCase, toLowerCase
-`java
+```java
 String msgHello = "Hello World";
 System.out.println(msgHello.toUpperCase()); // HELLO WORLD
 System.out.println(msgHello.toLowerCase()); // hello world
-`
+```
 - toUpperCase : 문자열을 대문자로 변환하여 반환
 - toLowerCase : 문자열을 소문자로 변환하여 반환
 
 #### split
-`java
+```java
 String msgNotSplit = "2022-01-01";
   String[] msgSplit = msgNotSplit.split("-");
   for(String element: msgSplit) {
@@ -137,7 +137,7 @@ String msgNotSplit = "2022-01-01";
 // 2022
 // 01
 // 01
-`
+```
 
 - 특정 문자를 기준으로 문자열을 분리함
 - String[] 타입으로 반환
@@ -264,7 +264,7 @@ String msgNotSplit = "2022-01-01";
 -----------------------------------------------------------
 ## if - else if - else
 -----------------------------------------------------------
-`java
+```java
 if(조건식) {
   수행문1
 } else if(조건식) {
@@ -272,7 +272,7 @@ if(조건식) {
 } else {
   수행문3
 }
-`
+```
 - if 문의 조건식이 true 이면 수행문1을 실행
 - 거짓이면 else if의 조건문을 검사하고 참이면 수행문2를 실행
 - else if문의 조건문도 거짓이면 else 문의 수행문3를 실행
@@ -282,7 +282,7 @@ if(조건식) {
 
 ## switch - case
 -----------------------------------------------------------
-`java
+```java
 switch(변수) {
   case 값1: 수행문1;
     break;
@@ -295,7 +295,7 @@ switch(변수) {
   default: 수행문5; 
     break;
 }
-`
+```
 
 - 변수의 값에 따라 다른 수행문을 실행시킴
 - 변수의 값이 값1 이면 수행문1을 실행하고 break 문이 나오면 switch문을 종료함
@@ -304,7 +304,7 @@ switch(변수) {
 - 변수의 값에는 문자열도 올 수 있다.
 - Java 14에서 부터는 switch에서 yeild 키워드로 값을 출력할 수 있고 이를 변수에 할당할 수 있다.
 
-`java
+```java
   int value = 1;
   int variable = 123;
   variable = switch(value) {
@@ -321,7 +321,7 @@ switch(변수) {
     }
     
   };
-`
+```
 
 
 ### 반복문 
@@ -329,15 +329,15 @@ switch(변수) {
 
 ## while
 
-`java
+```java
 while(조건문) {
   수행문
 }
-`
+```
 - 조건문이 true 이면 수행문을 실행하고 다시 조건문을 검사하고 수행문을 실행하고...
 - 조건문이 false 가 나올때까지 계속 반복
 
-`java
+```java
 while(조건문) {
   
   수행문1;
@@ -352,28 +352,28 @@ while(조건문) {
   }
   수행문 4;
 }
-`
+```
 - `break` 문을 실행하면 while 문을 빠져나온다
 - `continue` 문을 실행하면 나머지 조건문을 실행하지 않고 다시 조건문을 검사한다.
 - `break`, `continue`는 `do - while`, `for`문 에서도 사용할 수 있다.
 
 ## do - while 
 -----------------------------------------------------------
-`java
+```java
 do {
   수행문
 } while(조건문)
-`
+```
 - while문 과의 차이점으로 최초로 검사하기 전에 무조건 한번 수행문을 실행한다.
 
 
 ## for
 ------------------------------------------------------------
-`java
+```java
 for (초기화식; 조건식; 증감식) {
   수행문;
 }
-`
+```
 - 실행 순서: 초기화식 -> 조건식 -> 수행문 -> 증감식 -> 조건식
 - 초기화식은 한번만 실행됨.
 - 조건식 -> 수행문 -> 증감식 형태가 조건식이 false 일 때까지 계속 반복됨
@@ -382,20 +382,20 @@ for (초기화식; 조건식; 증감식) {
 
 ## foreach
 --------------------------------------------------------------
-`java
+```java
 for (type var: iterate) {
   body-of-loop
 }
-`
+```
 - iterate 부분에 들어갈 수 있는 타입은 Array, Collections, iterable<E>를 상속받은 객체
 - javascript 의 `for - of`, 파이썬의 `for - in` 과 유사
 
-`java
+```java
 String[] arrayNumber = {"one", "two", "three"};
 for (String var : arrayNumber) {
   system.out.println(var);
 }
-`
+```
 출력
 `
 one
