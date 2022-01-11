@@ -429,6 +429,7 @@ System.out.println(set5);
     - LinkedHashSet : 입력한 순서대로 값을 정렬하여 저장
 
 ### Enum
+---------------------------------------------------------
 ```java
 public class temp {
   enum Seasons {
