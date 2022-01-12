@@ -40,9 +40,9 @@ public class ConsoleIo {
 
     // 콘솔 입력
     // java.io.InputStream import
-    InputStream in = System.in; // System.in 은 InputStream 객체
+    // InputStream in = System.in; // System.in 은 InputStream 객체
 
-    int a, b, c, d;
+    // int a, b, c, d;
 
     // read 메소드로 읽은 1byte의 데이터는 byte 타입이 아닌 int 타입으로 저장된다.
     // 1byte만 읽기 때문에 "abc"를 입력해도 "a"만 읽을 수 있음

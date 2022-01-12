@@ -1,0 +1,44 @@
+0 line(PrintWriter)
+1 line(PrintWriter)
+2 line(PrintWriter)
+3 line(PrintWriter)
+4 line(PrintWriter)
+5 line(PrintWriter)
+6 line(PrintWriter)
+7 line(PrintWriter)
+8 line(PrintWriter)
+9 line(PrintWriter)
+10 line(PrintWriter)
+11 line(FileWriter), add 
+12 line(FileWriter), add 
+13 line(FileWriter), add 
+14 line(FileWriter), add 
+15 line(FileWriter), add 
+16 line(FileWriter), add 
+17 line(FileWriter), add 
+18 line(FileWriter), add 
+19 line(FileWriter), add 
+20 line(FileWriter), add 
+21 line(FileWriter), add 
+22 line(FileWriter), add 
+22line(PrintWriter(FileWriter)), add
+23line(PrintWriter(FileWriter)), add
+24line(PrintWriter(FileWriter)), add
+25line(PrintWriter(FileWriter)), add
+26line(PrintWriter(FileWriter)), add
+27line(PrintWriter(FileWriter)), add
+28line(PrintWriter(FileWriter)), add
+29line(PrintWriter(FileWriter)), add
+30line(PrintWriter(FileWriter)), add
+31line(PrintWriter(FileWriter)), add
+32line(PrintWriter(FileWriter)), add
+23line(PrintWriter(FileWriter)), add
+24line(PrintWriter(FileWriter)), add
+25line(PrintWriter(FileWriter)), add
+26line(PrintWriter(FileWriter)), add
+27line(PrintWriter(FileWriter)), add
+28line(PrintWriter(FileWriter)), add
+29line(PrintWriter(FileWriter)), add
+30line(PrintWriter(FileWriter)), add
+31line(PrintWriter(FileWriter)), add
+32line(PrintWriter(FileWriter)), add

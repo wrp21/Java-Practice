@@ -259,7 +259,7 @@ public class VariableDataType {
 
     // contains 메소드 : 요소가 들어있는지 여부를 boolean으로 반환
     System.out.println(alNumbers.contains("4"));
-    System.out.println(alNumbers.contains(4));
+    // System.out.println(alNumbers.contains(4));
 
     // remove(인덱스 or 객체) 메소드 : 요소 제거
     // 인덱스 : 인덱스의 요소를 제거하고, 삭제된 값을 반환

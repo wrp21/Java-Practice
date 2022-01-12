@@ -1,6 +1,266 @@
 # Java-Practice
 ------------------
 
+
+### 연산자 (Operater)
+----------------------------------------------
+
+## 대입 연산자
+-----------------------------------------------
+- 변수에 값을 할당할 떄 사용하는 연산자
+- 연산자 중 우선순위가 가장 낮음
+- 변수 = 리터럴, 다른 번수, 식
+
+## 부호 연산자
+------------------------------------------------
+- +, -
+- -1, -2, +3, +5 
+- 변수나 리터럴의 부호를 바꿈
+
+## 산술 연산자
+-------------------------------------------------
+|연산자| 기능         | 예시|
+|-----|------------|----|
+|+    |덧셈         |1 + 1|
+|-    |뺄셈         |1 - 1|
+|*    |곱셈         |2 * 2|
+|/    |나눗셈(몫)    |4 / 2|
+|%    |나눗셈(나머지) |4 % 3|
+
+-------------------------------------------------
+
+## 관계 연산자(비교 연산자)
+- 연산의 결과가 true, false로 반환
+
+|연산자| 사용 예     | 반환 값|
+|-----|------------|-------|
+|>    | 4 > 3      | true  |
+|<    | 4 < 3      | false |
+|>=   | 4 >= 3     | true  |
+|<=   | 4 <= 3     | false |
+|==   | 4 == 4     | true  |
+|!=   | 4 != 4     | false |
+
+--------------------------------------------------
+## 논리 연산자
+- `&&`, `||`, `!`
+- `&&` : 두 항이 모두 참인 경우에 true를 반환함
+- `||` : 두 항 중에서 하나이상 참이면 true를 반환, 모두 거짓이면 false를 반환
+- `!` : 논리를 반전시킴(num 값이 true일 때 !num은 false를 반환함)
+
+---------------------------------------------------
+## 비트 연산자
+- 변수들의 값 또는 리터럴을 비트 단위로 연산함
+- 예를 들어, `4 | 3`은 `0100 | 0011` 으로 연산되어 0111(10진법으로 7)이 출력된다.
+- `>>>`은 `>>` 처럼 비트이동을 하지만 부호와 상관 없이 0을 채운다
+
+--------------------------------------------------
+|연산자  |예                 | 설명                         |
+|-------|-------------------|------------------------------|
+|~      |~1111 == 000       |num을 의 비트를 1의 보수를 취한다  |
+|&      |111 & 110 == 110   |비트 단위의 and 연산을 한다       |
+| |     |111 | 000 == 111   |비트 단위의 or 연산을 한다 |
+|^      |111 ^ 101 == 010   |비트 단위의 xor 연산을 한다|
+|<<     |1111 << 2 == 1100  |왼쪽으로 두번 비트를 이동한다.|
+|>>     |1111 >> 2 == 0011  |오른쪽으로 우번 비트를 이동한다.|
+|>>>    |num >>> 2          |>> 와 같은 같은 연산, 부호 상관없이 0을 채움|
+
+
+## 복합 대입 연산자
+
+-------------------------------------------------
+|연산자  |사용 예     | 동일한 표현   |
+|-------|-----------|-------------|
+|+=     |num += 1   |nun = num + 1|
+|-=     |num -= 1   |nun = num - 1|
+|*=     |num *= 2   |num = num * 2|
+|/=     |num /= 2   |num / num = 2|
+|<<=    |num <<= 2  |num = num << 2|
+|>>=    |num >>= 2  |num = num >> 2|
+|>>>=   |num >>>= 2 |num = num >>> 2|
+|&=     |num &= mask|num = num & mask|
+||=     |num |= mask|num = num ^ mask|
+|^=     |num ^= mask|num = num ^ mask|
+
+-------------------------------------------------
+## 증감 연산자
+-----------------------------------------------------------
+- 연산자의 위치에 따라 연산이 되는 순서가 다름
+- 전위 연산자
+  - `++num`, `--num`
+  - `result = ++num` : num 값이 1 증가한 후에 result에 저장됨
+- 후위 연산자`
+  - `num++`, `num--`
+  - `result = ++num` : result에 num이 먼저 저장된 후에 num 값이 1증가
+
+## 삼항 연산자
+-----------------------------------------------------------
+- `조건식 ? 결과1 : 결과2`
+  - 조건식이 true이면 결과1을 실행 false이면 결과2를 실행
+  - `num == 10 ? isTen = true : isTen = false`
+
+
+## 연산자 우선순위
+-----------------------------------------------------------
+- 1. `()`, `[]`
+- 2. `!`, `++`, `--`, `+`, `-`
+- 3. `%`, `/`
+- 4. `+`, `-`
+- 5. `<<`, `<<`
+- 6. `<`, `>`, `<=`, `>=`
+- 7. `==`, `!=`
+- 8. `&`
+- 9. `^`
+- 10. `|`
+- 11. `&&`
+- 12. `||`
+- 13. `? :`
+- 14. `=`, `+=`, `-=`, ` *=`, `%=`, `/=`
+
+
+### 조건문
+-----------------------------------------------------------
+## if - else if - else
+-----------------------------------------------------------
+```java
+if(조건식) {
+  수행문1
+} else if(조건식) {
+  수행문2
+} else {
+  수행문3
+}
+```
+- if 문의 조건식이 true 이면 수행문1을 실행
+- 거짓이면 else if의 조건문을 검사하고 참이면 수행문2를 실행
+- else if문의 조건문도 거짓이면 else 문의 수행문3를 실행
+- else if, else는 없을 수도 있고 if문만 있을 수도 있다.
+- if, else if문이 모두 거짓이면 else 문을 실행
+- if, else if에서 하나의 조건문이 true가 나오면 나머지 else if, else는 건너뜀
+
+## switch - case
+-----------------------------------------------------------
+```java
+switch(변수) {
+  case 값1: 수행문1;
+    break;
+  case 값2: 수행문2;
+    break;
+  case 값3: 수행문3;
+    break;
+  case 4: case 5: case 6: case 7: 수행문4
+    break;
+  default: 수행문5; 
+    break;
+}
+```
+
+- 변수의 값에 따라 다른 수행문을 실행시킴
+- 변수의 값이 값1 이면 수행문1을 실행하고 break 문이 나오면 switch문을 종료함
+- break 문이 없으면 그 다움 case문이 실행된다.
+- 변수의 값이 case 문의 값과 일치하는 것이 없으면 default 문을 실행
+- 변수의 값에는 문자열도 올 수 있다.
+- Java 14에서 부터는 switch에서 yeild 키워드로 값을 출력할 수 있고 이를 변수에 할당할 수 있다.
+
+```java
+  int value = 1;
+  int variable = 123;
+  variable = switch(value) {
+    case 1, 2, 3, 4, 5, 6, 7 -> {
+      yield 1;
+    }
+
+    case 8, 9, 10, 11, 12, 13, 14 -> {
+      yield 2;
+    }
+
+    default -> {
+      yield 0;
+    }
+    
+  };
+```
+
+
+### 반복문 
+------------------------------------------
+
+## while
+
+```java
+while(조건문) {
+  수행문
+}
+```
+- 조건문이 true 이면 수행문을 실행하고 다시 조건문을 검사하고 수행문을 실행하고...
+- 조건문이 false 가 나올때까지 계속 반복
+
+```java
+while(조건문) {
+  
+  수행문1;
+  수행문2;
+
+  if(condition1 == true) {
+    continue;
+  }
+
+  if(condition2 == true) {
+    break;
+  }
+  수행문 4;
+}
+```
+- `break` 문을 실행하면 while 문을 빠져나온다
+- `continue` 문을 실행하면 나머지 조건문을 실행하지 않고 다시 조건문을 검사한다.
+- `break`, `continue`는 `do - while`, `for`문 에서도 사용할 수 있다.
+
+## do - while 
+-----------------------------------------------------------
+```java
+do {
+  수행문
+} while(조건문)
+```
+- while문 과의 차이점으로 최초로 검사하기 전에 무조건 한번 수행문을 실행한다.
+
+
+## for
+------------------------------------------------------------
+```java
+for (초기화식; 조건식; 증감식) {
+  수행문;
+}
+```
+- 실행 순서: 초기화식 -> 조건식 -> 수행문 -> 증감식 -> 조건식
+- 초기화식은 한번만 실행됨.
+- 조건식 -> 수행문 -> 증감식 형태가 조건식이 false 일 때까지 계속 반복됨
+- 초기화식이 바깥에 있거나, 조건식이 내부에 있거나, 증감식이 필요 없을 경우 각각 생략 가능
+- 모두 생략하면 `for(;;)` 처럼 되며 내부의 수행문을 무한반복하게 됨.
+
+## foreach
+--------------------------------------------------------------
+```java
+for (type var: iterate) {
+  body-of-loop
+}
+```
+- iterate 부분에 들어갈 수 있는 타입은 Array, Collections, iterable<E>를 상속받은 객체
+- javascript 의 `for - of`, 파이썬의 `for - in` 과 유사
+
+```java
+String[] arrayNumber = {"one", "two", "three"};
+for (String var : arrayNumber) {
+  system.out.println(var);
+}
+```
+출력
+`
+one
+two
+three
+`
+
 ### 변수 선언
 -----------------------------------------------------------------
 - 변수 이름은 영문 대소문자, 숫자, 특수문자 중에서 `$`, `_`를 사용할 수 있음.
@@ -452,264 +712,288 @@ public class temp {
 - 타입으로서 역활을 하기 때문에 enum 타입을 만들고 지정해놓으면 엉뚱한 값을 넣을때 컴파일러에 의해 알아차릴 수 있다.
 
 
+### 입출력
+--------------------------------------------------------
 
-### 연산자 (Operater)
-----------------------------------------------
+#### 콘솔 입출력
 
-## 대입 연산자
------------------------------------------------
-- 변수에 값을 할당할 떄 사용하는 연산자
-- 연산자 중 우선순위가 가장 낮음
-- 변수 = 리터럴, 다른 번수, 식
+- 콘솔은 사용자의 입력을 받거나 사용자에게 문자열을 출력해주는 역활을하는 것을 통칭
+- 
+- 콘솔 입력 : 사용자에게 입력을 받음
+    - `InputStream`, `InputStreamReader`, `BufferedReader`, `Scanner` 클래스 사용
+    - `System.in`은 `InputStream` 객체
+- 콘솔 출력 : 사용자에게 보여줌
+    - `PrintStream` 클래스 사용
+    - `System.out`은 `PrintStream` 객체
+- `throws IOException`
 
-## 부호 연산자
-------------------------------------------------
-- +, -
-- -1, -2, +3, +5 
-- 변수나 리터럴의 부호를 바꿈
+#### 콘솔 입력
 
-## 산술 연산자
--------------------------------------------------
-|연산자| 기능         | 예시|
-|-----|------------|----|
-|+    |덧셈         |1 + 1|
-|-    |뺄셈         |1 - 1|
-|*    |곱셈         |2 * 2|
-|/    |나눗셈(몫)    |4 / 2|
-|%    |나눗셈(나머지) |4 % 3|
-
--------------------------------------------------
-
-## 관계 연산자(비교 연산자)
-- 연산의 결과가 true, false로 반환
-
-|연산자| 사용 예     | 반환 값|
-|-----|------------|-------|
-|>    | 4 > 3      | true  |
-|<    | 4 < 3      | false |
-|>=   | 4 >= 3     | true  |
-|<=   | 4 <= 3     | false |
-|==   | 4 == 4     | true  |
-|!=   | 4 != 4     | false |
-
---------------------------------------------------
-## 논리 연산자
-- `&&`, `||`, `!`
-- `&&` : 두 항이 모두 참인 경우에 true를 반환함
-- `||` : 두 항 중에서 하나이상 참이면 true를 반환, 모두 거짓이면 false를 반환
-- `!` : 논리를 반전시킴(num 값이 true일 때 !num은 false를 반환함)
-
----------------------------------------------------
-## 비트 연산자
-- 변수들의 값 또는 리터럴을 비트 단위로 연산함
-- 예를 들어, `4 | 3`은 `0100 | 0011` 으로 연산되어 0111(10진법으로 7)이 출력된다.
-- `>>>`은 `>>` 처럼 비트이동을 하지만 부호와 상관 없이 0을 채운다
-
---------------------------------------------------
-|연산자  |예                 | 설명                         |
-|-------|-------------------|------------------------------|
-|~      |~1111 == 000       |num을 의 비트를 1의 보수를 취한다  |
-|&      |111 & 110 == 110   |비트 단위의 and 연산을 한다       |
-| |     |111 | 000 == 111   |비트 단위의 or 연산을 한다 |
-|^      |111 ^ 101 == 010   |비트 단위의 xor 연산을 한다|
-|<<     |1111 << 2 == 1100  |왼쪽으로 두번 비트를 이동한다.|
-|>>     |1111 >> 2 == 0011  |오른쪽으로 우번 비트를 이동한다.|
-|>>>    |num >>> 2          |>> 와 같은 같은 연산, 부호 상관없이 0을 채움|
-
-
-## 복합 대입 연산자
-
--------------------------------------------------
-|연산자  |사용 예     | 동일한 표현   |
-|-------|-----------|-------------|
-|+=     |num += 1   |nun = num + 1|
-|-=     |num -= 1   |nun = num - 1|
-|*=     |num *= 2   |num = num * 2|
-|/=     |num /= 2   |num / num = 2|
-|<<=    |num <<= 2  |num = num << 2|
-|>>=    |num >>= 2  |num = num >> 2|
-|>>>=   |num >>>= 2 |num = num >>> 2|
-|&=     |num &= mask|num = num & mask|
-||=     |num |= mask|num = num ^ mask|
-|^=     |num ^= mask|num = num ^ mask|
-
--------------------------------------------------
-## 증감 연산자
------------------------------------------------------------
-- 연산자의 위치에 따라 연산이 되는 순서가 다름
-- 전위 연산자
-  - `++num`, `--num`
-  - `result = ++num` : num 값이 1 증가한 후에 result에 저장됨
-- 후위 연산자`
-  - `num++`, `num--`
-  - `result = ++num` : result에 num이 먼저 저장된 후에 num 값이 1증가
-
-## 삼항 연산자
------------------------------------------------------------
-- `조건식 ? 결과1 : 결과2`
-  - 조건식이 true이면 결과1을 실행 false이면 결과2를 실행
-  - `num == 10 ? isTen = true : isTen = false`
-
-
-## 연산자 우선순위
------------------------------------------------------------
-- 1. `()`, `[]`
-- 2. `!`, `++`, `--`, `+`, `-`
-- 3. `%`, `/`
-- 4. `+`, `-`
-- 5. `<<`, `<<`
-- 6. `<`, `>`, `<=`, `>=`
-- 7. `==`, `!=`
-- 8. `&`
-- 9. `^`
-- 10. `|`
-- 11. `&&`
-- 12. `||`
-- 13. `? :`
-- 14. `=`, `+=`, `-=`, ` *=`, `%=`, `/=`
-
-
-### 조건문
------------------------------------------------------------
-## if - else if - else
------------------------------------------------------------
-```java
-if(조건식) {
-  수행문1
-} else if(조건식) {
-  수행문2
-} else {
-  수행문3
-}
-```
-- if 문의 조건식이 true 이면 수행문1을 실행
-- 거짓이면 else if의 조건문을 검사하고 참이면 수행문2를 실행
-- else if문의 조건문도 거짓이면 else 문의 수행문3를 실행
-- else if, else는 없을 수도 있고 if문만 있을 수도 있다.
-- if, else if문이 모두 거짓이면 else 문을 실행
-- if, else if에서 하나의 조건문이 true가 나오면 나머지 else if, else는 건너뜀
-
-## switch - case
------------------------------------------------------------
-```java
-switch(변수) {
-  case 값1: 수행문1;
-    break;
-  case 값2: 수행문2;
-    break;
-  case 값3: 수행문3;
-    break;
-  case 4: case 5: case 6: case 7: 수행문4
-    break;
-  default: 수행문5; 
-    break;
-}
-```
-
-- 변수의 값에 따라 다른 수행문을 실행시킴
-- 변수의 값이 값1 이면 수행문1을 실행하고 break 문이 나오면 switch문을 종료함
-- break 문이 없으면 그 다움 case문이 실행된다.
-- 변수의 값이 case 문의 값과 일치하는 것이 없으면 default 문을 실행
-- 변수의 값에는 문자열도 올 수 있다.
-- Java 14에서 부터는 switch에서 yeild 키워드로 값을 출력할 수 있고 이를 변수에 할당할 수 있다.
+##### InputStream
 
 ```java
-  int value = 1;
-  int variable = 123;
-  variable = switch(value) {
-    case 1, 2, 3, 4, 5, 6, 7 -> {
-      yield 1;
-    }
+package javaBasicSyntax;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.Scanner;
+import java.io.IOException;
 
-    case 8, 9, 10, 11, 12, 13, 14 -> {
-      yield 2;
-    }
-
-    default -> {
-      yield 0;
-    }
-    
-  };
-```
-
-
-### 반복문 
-------------------------------------------
-
-## while
-
-```java
-while(조건문) {
-  수행문
-}
-```
-- 조건문이 true 이면 수행문을 실행하고 다시 조건문을 검사하고 수행문을 실행하고...
-- 조건문이 false 가 나올때까지 계속 반복
-
-```java
-while(조건문) {
-  
-  수행문1;
-  수행문2;
-
-  if(condition1 == true) {
-    continue;
+public class IoExam {
+  public static void main(String[] args) throws IOException {
+    InputStream input = System.in;
+    input.read(); // a 입력
+    System.out.println(input);
+    // 97 출력
   }
+}
+```
+- `System` 클래스는 `java.lang` 에 속해 있어서 import 해주지 않아도 됨
+- `java.io.InputStream`
+- `InputStream`의 `read` 메소드는 1byte만 읽을 수 있으며 `int` 타입으로 저장됨, 값은 0~255 사이의 ascii 값
 
-  if(condition2 == true) {
-    break;
+##### InputStreamReader
+
+```java
+package javaBasicSyntax;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class IoExam {
+  public static void main(String[] args) throws IOException {
+    InputStreamReader input = new InputStreamReader(System.in);
+    char[] chItems = new char[3];
+    input.read(chItems); // aaa 입력
+    System.out.println(chItems); // aaa 출력
   }
-  수행문 4;
 }
 ```
-- `break` 문을 실행하면 while 문을 빠져나온다
-- `continue` 문을 실행하면 나머지 조건문을 실행하지 않고 다시 조건문을 검사한다.
-- `break`, `continue`는 `do - while`, `for`문 에서도 사용할 수 있다.
 
-## do - while 
------------------------------------------------------------
+- `java.io.InputStreamReader`
+- `InputStreamReader`의 `read` 메소드는 `char` 타입으로 저장되어 입력한 문자 그대로 출력할 수 있다.
+- `InputStream` 과 마찬가지로 1byte 만 입력받을 수 있기 때문에 여러 문자를 입력받으려면 고정된 길이의 배열을 사용해야한다.
+
+###### BufferedReader
+
 ```java
-do {
-  수행문
-} while(조건문)
-```
-- while문 과의 차이점으로 최초로 검사하기 전에 무조건 한번 수행문을 실행한다.
+package javaBasicSyntax;
+import java.io.IOExcepion;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
+public class IoExam {
+  public static void main(String[] args) throws IOException {
+    InputStream isInput = System.in;
+    InputSteamReader isrInput = new InputStreamReader(isInput);
+    BufferedReader brInput = new BufferedReader(isrInput);
 
-## for
-------------------------------------------------------------
-```java
-for (초기화식; 조건식; 증감식) {
-  수행문;
+    String line = brInput.readLine();
+    System.out.println(line);
+
+  }
 }
 ```
-- 실행 순서: 초기화식 -> 조건식 -> 수행문 -> 증감식 -> 조건식
-- 초기화식은 한번만 실행됨.
-- 조건식 -> 수행문 -> 증감식 형태가 조건식이 false 일 때까지 계속 반복됨
-- 초기화식이 바깥에 있거나, 조건식이 내부에 있거나, 증감식이 필요 없을 경우 각각 생략 가능
-- 모두 생략하면 `for(;;)` 처럼 되며 내부의 수행문을 무한반복하게 됨.
+- `java.io.BufferedReader`
+- `readLine` 메소드를 이용하여 `InputStream`, `InputStreamReader`와 다르게 `Enter` 입력 전까지의 문자열(String)를 받을 수 있다.
+    - `InputStream` : byte
+    - `InputStreamReader` : character  
+    - `BufferedReader` : String
 
-## foreach
---------------------------------------------------------------
-```java
-for (type var: iterate) {
-  body-of-loop
-}
-```
-- iterate 부분에 들어갈 수 있는 타입은 Array, Collections, iterable<E>를 상속받은 객체
-- javascript 의 `for - of`, 파이썬의 `for - in` 과 유사
+##### Scanner
 
 ```java
-String[] arrayNumber = {"one", "two", "three"};
-for (String var : arrayNumber) {
-  system.out.println(var);
+package javaBasicSyntax;
+import java.util.Scanner;
+
+public class IoExam {
+  public static void main(String[] args) {
+    Scanner inputWord = new Scanner(System.in);
+    Scanner inputLine = new Scanner(System.in);
+    Scanner inputInteger = new Scanner(System.in);
+
+    System.out.println(inputWord.next());
+    System.out.println(inputLine.nextLine());
+    System.out.println(inputInteger.nextInt());
+  }
 }
 ```
-출력
-`
-one
-two
-three
-`
+
+- `java.util.Scanner`
+- `Scanner` 클래스는 생성자의 입력으로 콘솔입력인 `InputStream` 클래스인 `System.in` 을 넣어야한다.
+- `next` 메소드 : 단어 하나(Token)을 읽음
+- `nextLine` : 라인
+- `nextInt` : 정수
+
+#### 콘솔 출력
+
+- `System.out`은 `PrintStream` 클래스의 객체이며 콘솔에 값을 출력할 때 사용
+- `println`, `print`, `printf`
+- `System.err` 는 오류 메세지를 출력할 경우에 사용
 
 
+#### 파일 입출력
+
+##### FileOutputStream
+
+```java
+package javaBasicSyntax;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class FileIoExam {
+  public static void main(String[] args) throws IOException {
+    FileOutputStream output = new FileOutputStream("output.txt");
+    for (int i = 0; i < 11; i++) {
+      String lineString = i + " line \r\n";
+      output.write(lineString.getBytes());
+    }
+    output.close();
+  }
+}
+```
+- `java.io.FileOutputStream`, `java.io.IOException`
+- `FileOutputStream` 클래스는 `OutputStream` 을 상속 받는 클래스
+    - `InputStream` 처럼 데이터를 바이트 단위로 처리해야함
+    - `String` 을 바이트의 배열로 만들어 주기 위해 `getBytes` 메소드 사용
+- `FileOutputStream` 객체의 생성자의 입력으로 파일 경로, 이름 전달
+- `write` 메소드로 파일 쓰기
+- 윈도우 : `\r\n`, 유닉스 : `\n` 를 붙여야 다음 라인에 쓸 수 있음
+- `close` 메소드로 파일객체를 닫을 수 있지만, 없어도 프로그램이 종료되면 자동으로 닫아준다.
+
+##### FileWriter
+
+```java
+package javaBasicSyntax;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileIoExam {
+  public static void main(String[] args) throws IOException {
+    FileWriter output = new FileWriter("output.txt");
+    for(int i = 0; i < 11; i++) {
+      String lineString = i + "line(FileWriter) \r\n";
+      output.write(lineString);
+    }
+    output.close();
+  }
+}
+```
+
+- `java.io.FileWriter`
+- `FileOutputStream`과 달리 문자열 타입을 바로 인자로 줄 수 있다.
+- 여전히 `\r\n` 필요
+
+##### PrintWriter
+```java
+package javaBasicSyntax;
+import java.io.PrintWriter;
+import java.io.IOException;
+
+public class FileIoExam {
+  public static void main(String[] args) throws IOException {
+    PrintWriter output = new PrintWriter('output.txt');
+    for(int i = 0; i < 11; i++) {
+      String lineString = i + " line(PrintWriter)";
+      output.println(lineString);
+    }
+    output.close();
+  }
+}
+```
+- `java.io.PrintWriter`
+- `\r\n` 불필요
+- `println` 메소드
+
+#### 파일 내용 추가하기
+
+```java
+package javaBasicSyntax;
+import java.io.IOException;
+import java.io.FileWriter;
+
+public class FileIoExam {
+  public static void main(String[] args) throws IOException {
+    FileWriter output = new FileWriter("output.txt", true);
+    for(int i = 11; i < 23; i++) {
+      String addLine = i + " line(FileWriter), add \r\n";
+      output.write(addLine);
+    }
+    output.close();
+  }
+}
+```
+
+- `FileWriter` 객체의 생성자의 두번째 인자로 `true`를 전달하면 추가모드로 열고 덮어쓰지 않고 추가로 내용이 생성됨
+
+
+```java
+package javaBasicSyntax;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+
+public class FileIoExam {
+  public static void main(String[] args) throws IOException {
+    PrintWriter output = new PrintWriter(new FileWriter("output.txt", true));
+    for (int i = 23; i < 33; i++ ) {
+      String addLine = i + "line(PrintWriter(FileWriter)), add";
+      output.println(addLine);
+    }
+    output.close();
+
+  }
+}
+```
+- `PrintWriter` 객체를 생성할때 인자로 `FileWriter` 객체 추가모드로 전달
+- `println`
+
+#### 파일 읽기
+
+- `FileInputStream`의 `read` 매소드
+- `BufferedReader` 객체 생성자에 `FileReader` 객체 전달
+
+```java
+package javaBasicSyntax;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class FileIoExam {
+  public static void main(String[] args) throws IOException{
+    byte[] bArray = new byte[2048];
+    FileInputStream fInput = new FileInputStream("output.txt");
+    fInput.read(bArray);
+    System.out.println(new String(bArray));
+    fInput.close();
+  }
+}
+```
+
+- `FileInputStream`을 사용하는 방법은 파일의 길이를 알고 있어야 한다.
+
+```java
+package javaBasicSyntax;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class FileIoExam {
+  public static void main(String[] args) throws IOException{
+    BufferedReader bfInput = new BufferedReader(new FileReader("output.txt"));
+    while(true) {
+      String line = bfInput.readLine();
+      if (line == null) break;
+      System.out.println(line);
+    }
+    bfInput.close();
+  }
+}
+```
+- `BufferedReader` 객체의 생성자에 `FileReader` 객체 전달
+- `BufferedReader` 의 `readLine` 메소드는 읽을 라인이 없으면 null을 반환
+- 파일의 길이를 몰라도 된다.
+
+## 객체지향 프로그래밍
+-------------------------------------------------------------------
+
+### Class
