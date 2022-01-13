@@ -2,7 +2,7 @@ package javaBasicSyntax.OOP;
 
 public class Calculator {
   // static 
-  static double result = 0;
+  double result = 0;
 
   double add(double addNumber) {
     result += addNumber;
