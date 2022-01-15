@@ -1,4 +1,4 @@
-package javaBasicSyntax.OOP;
+package javaBasicSyntax.OOP.Class;
 
 public class Calculator {
   // static 

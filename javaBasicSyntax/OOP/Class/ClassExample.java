@@ -1,6 +1,6 @@
-package javaBasicSyntax.OOP;
+package javaBasicSyntax.OOP.Class;
 
-import javaBasicSyntax.OOP.Calculator;
+import javaBasicSyntax.OOP.Class.Calculator;
 
 
 public class ClassExample {
