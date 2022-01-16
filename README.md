@@ -1003,6 +1003,7 @@ public class Calculator {
 
   // 멤버변수
   double result = 0;
+  String memo = "";
 
   // 메소드 
   double add(double addNumber) {
@@ -1024,6 +1025,33 @@ public class Calculator {
     result /= divNumber;
     return result;
   }
+
+  void setMemo(String value) {
+    this.memo = value;
+  }
+
+  void showState() {
+    System.out.println(String.format("memo: %s", this.memo));
+    System.out.println(String.format("result: %s\n", this.result));
+  }
+
+  void setResult(double value) {
+    this.result = value;
+    this.showState();
+  }
+
+  void setResult(Calculator calc) {
+    this.result = calc.result;
+    this.showState();
+  }
+
+  void setResultChange(Calculator calc) {
+    double temp = this.result;
+    this.result = calc.result;
+    calc.result = temp;
+    this.showState();
+    calc.showState();
+  }
 }
 ```
 
@@ -1038,19 +1066,89 @@ public class ClassExample {
     Calculator secondProblemCalc = new Calculator();
 
     // 첫번째 문제를 풀기 위한 계산기
+    firstProblemCalc.setMemo("Problem 1");
     firstProblemCalc.add(5);
     firstProblemCalc.add(5);
     firstProblemCalc.sub(2);
     firstProblemCalc.mul(2);
-    firstProblemCalc.div(8);
-    System.out.println(firstProblemCalc.result);
+    firstProblemCalc.div(8); 
+    firstProblemCalc.showState();
 
     // 두번째 문제를 풀기 위한 계산기
+    secondProblemCalc.setMemo("Problem 2");
     secondProblemCalc.add(20);
     secondProblemCalc.div(2);
     secondProblemCalc.sub(8);
     secondProblemCalc.mul(2);
-    System.out.println(secondProblemCalc.result);
+    secondProblemCalc.showState();
+    
+    firstProblemCalc.setResultChange(secondProblemCalc);
+
+    firstProblemCalc.setResult(0);
+    secondProblemCalc.setResult(1);
+
+    firstProblemCalc.setResult(secondProblemCalc);
 }
 ```
+- 클래스의 선언은 설계도를 만든 것이고 `new` 키워드로 생성한 객체는 설계도로 생산된 하나의 제품으로 비유할 수 있다.
+- 자바에서 함수는 클래스 내에 있으며, 이를 메소드라고 한다.
+- `firstCalculator` 가 객체이며 멤버 변수로 `result`를 가지고 있고, 메소드로 `add`, `sub`, `mul`, `div`, ... 가 있다.
+- `firstCalculator`는 `Calculator` 의 인스턴스
+- 동일한 클래스의 이름이 다른 인스턴스들의 멤버변수는 `static` 키워드를 사용하지 않으면 독립된 메모리를 할당받는다.
+- 멤버변수와 메소드는 `.` 연산자로 접근할 수 있다.
+- `this` 키워드는 만들어진 객체를 지칭한다.
+    - `firstProblemCalc` 객체의 `setResult` 메소드를 실행하면 클래스에 있는 `this.result`는 `firstProblemCalc.result` 를 의미한다.
+
+#### 메소드 오버로딩(Overloading)
+```java
+  void setResult(double value) {
+    this.result = value;
+    this.showState();
+  }
+
+  void setResult(Calculator calc) {
+    this.result = calc.result;
+    this.showState();
+  }
+```
+
+```java
+firstProblemCalc.setResult(0); // 입력  : int
+secondProblemCalc.setResult(1);
+
+firstProblemCalc.setResult(secondProblemCalc); // 입력 Calculator
+```
+- `setResult` 처럼 메소드 이름이 같고 입력이 다른 경우마다 메소드의 정의를 다르게 하는 것을 메소드 오버로딩이라고 한다. 
+- 객체에서 메소드를 사용하면 입력이 일치하는 메소드로 실행된다.
+
+
+```java
+...
+
+void setResultChange(Calculator calc) {
+    double temp = this.result;
+    this.result = calc.result;
+    calc.result = temp;
+    this.showState();
+    calc.showState();
+  }
+
+...
+```
+
+```java
+...
+
+firstProblemCalc.setResultChange(secondProblemCalc);
+
+...
+```
+
+- 메소드에 기본 자료형(primitive type) 과 객체를 넘겨주는 것은 다르다.
+- `setResultChange` 메소드는 Calculator 타입의 인스턴스를 입력 받기 때문에
+- `secondProblemCalc` 의 멤버변수의 값이 변경된다.
+
+
+### 상속
+
 
