@@ -1004,6 +1004,12 @@ public class Calculator {
   // 멤버변수
   double result = 0;
   String memo = "";
+  String name = "";
+
+  // 생성자
+  Calculator(String name) {
+    this.name = name;
+  }
 
   // 메소드 
   double add(double addNumber) {
@@ -1061,9 +1067,12 @@ import javaBasicSyntax.OOP.Class.Calculator;
 public class ClassExample {
   public static void main(String[] args) {
     // 객체 생성
-    // 
-    Calculator firstProblemCalc = new Calculator();
-    Calculator secondProblemCalc = new Calculator();
+    // 생성자
+    Calculator firstProblemCalc = new Calculator("First Calculator");
+    Calculator secondProblemCalc = new Calculator("Second Calculator");
+
+    System.out.println(String.format("name : %s", firstProblemCalc.name));
+    System.out.println(String.format("name : %s", secondProblemCalc.name));
 
     // 첫번째 문제를 풀기 위한 계산기
     firstProblemCalc.setMemo("Problem 1");
@@ -1099,7 +1108,51 @@ public class ClassExample {
 - `this` 키워드는 만들어진 객체를 지칭한다.
     - `firstProblemCalc` 객체의 `setResult` 메소드를 실행하면 클래스에 있는 `this.result`는 `firstProblemCalc.result` 를 의미한다.
 
-#### 메소드 오버로딩(Overloading)
+
+### 생성자
+```java
+...
+
+public class Calculator {
+
+  double result = 0;
+  String memo = "";
+  String name = "";
+
+  // Calculator() {} // default 생성자
+  
+  // 생성자
+  Calculator(String name) {
+    this.name = name;
+  }
+
+  ...
+}
+
+...
+```
+
+```java
+public class ClassExample {
+  public static void main(String[] args) {
+    // 객체 생성
+    // 생성자
+    Calculator firstProblemCalc = new Calculator("First Calculator");
+    Calculator secondProblemCalc = new Calculator("Second Calculator");
+
+    ...
+  }
+}
+
+```
+
+- `new` 키워드로 객체를 생성함과 동시에 값을 할당하고 싶으면 생성자를 이용한다.
+- 생성자는 클래스명과 메소드 명이 동일하며, 리턴타입을 정의하지 않는다.
+- 생성자가 선언되어 있으며 생성자 규칙대로 객체를 생성하지 않으면 오류 발생
+- 생성자를 명시하지 않으면 컴파일러는 입력과 내용이 없는 디폴트 생성자를 자동으로 실행한다.
+- 생성자도 매소드처럼 오버로딩이 가능하다 즉 다른 입력을 받아 다른 처리를 하는 여러개의 생성자를 만들 수 있다.
+
+### 메소드 오버로딩(Overloading)
 ```java
   void setResult(double value) {
     this.result = value;
@@ -1150,5 +1203,118 @@ firstProblemCalc.setResultChange(secondProblemCalc);
 
 
 ### 상속
+```java
+package javaBasicSyntax.OOP.Inheritance;
 
+
+class Parent {
+  String name = "";
+  String memo = "";
+
+  Parent(String name) {
+    this.name = name;
+  }
+
+  void setMemo(String memo) {
+    this.memo = String.format("Parent memo: %s\n", this.memo);
+  }
+
+  void showMemo() {
+    System.out.println(String.format("memo : ", this.memo));
+  }
+
+  void showName() {
+    System.out.println(String.format("Name : ", this.name));
+  }
+}
+
+class Child extends Parent{
+
+  Child(String name) {
+    super(name);
+  }
+
+  void setMemo(String memo) {
+    this.memo = String.format("Child memo: %s\n", memo);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Child child1 = new Child("child1");
+    child1.setMemo("child1 memo");
+
+    System.out.println(child1.memo);
+    System.out.println(child1.name);
+
+    // 오버라이딩한 setMemo
+    child1.setMemo("child1 memo");
+    System.out.println(child1.memo);
+
+    // 오버로딩한 setMemo
+    child1.setMemo("child1 memo", "+ String ...");
+    System.out.println(child1.memo);
+
+  }
+}
+```
+- `extends` 키워드를 사용하여 상속
+- 자바는 다중 상속을 지원하지 않음 
+- `Child` 클래스는 `Parent` 클래스를 상속받으며 이러한 관계를 IS-A 관계라고 한다.
+- `Child` 클래스는 상속받은 `Parent` 클래스의 멤버변수와 멤버함수를 사용할 수 있다.
+- 부모클래스를 상속받은 상태에서 새로운 메소드를 추가하여 사용할 수 있다.
+
+### 메소드 오버라이딩(Overiding)
+```java
+class Parent {
+  String name = "";
+  String memo = "";
+
+  ...
+
+  
+  void setMemo(String memo) {
+    this.memo = memo;
+  }
+
+  ...
+
+}
+
+class Child {
+  
+  ...
+
+  // 메소드 오버라이딩(Overriding)
+  void setMemo(String memo) {
+    this.memo = String.format("Child memo: %s\n", memo);
+  }
+
+  // 메소드 오버로딩(Overloading)
+  void setMemo(String memo, String addString) {
+    this.memo = String.format("Child memo : %s %s\n", memo, addString);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    // 객체 생성
+    Child child1 = new Child("child1");
+
+    // 오버라이딩한 setMemo
+    child1.setMemo("child1 memo");
+    System.out.println(child1.memo);
+
+    // 오버로딩한 setMemo
+    child1.setMemo("child1 memo", "+ String ...");
+    System.out.println(child1.memo);
+  }
+}
+```
+
+- 부모클래스에 있는 메소드를 자식클래스에서 구현하는 것을 메소드 오버라이딩이라고 한다.
+- 부모클래스에서 받은 메소드를 오버로딩하는 것 또한 가능하다.
+
+
+### 인터페이스
 

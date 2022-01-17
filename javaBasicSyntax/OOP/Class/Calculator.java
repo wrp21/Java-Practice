@@ -4,8 +4,12 @@ public class Calculator {
   // static 
   double result = 0;
   String memo = "";
+  String name = "";
 
-  
+  // 생성자
+  Calculator(String name) {
+    this.name = name;
+  }
 
   double add(double addNumber) {
     result += addNumber;

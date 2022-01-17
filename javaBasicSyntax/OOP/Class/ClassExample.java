@@ -6,10 +6,13 @@ import javaBasicSyntax.OOP.Class.Calculator;
 public class ClassExample {
   public static void main(String[] args) {
     
-    Calculator firstProblemCalc = new Calculator();
-    Calculator secondProblemCalc = new Calculator();
+    Calculator firstProblemCalc = new Calculator("First Calculator");
+    Calculator secondProblemCalc = new Calculator("Second Calculator");
 
-    
+    System.out.println(String.format("name : %s", firstProblemCalc.name));
+    System.out.println(String.format("name : %s", secondProblemCalc.name));
+
+
     // 첫번째 문제를 풀기 위한 계산기
     firstProblemCalc.setMemo("Problem 1");
     firstProblemCalc.add(5);
