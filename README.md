@@ -1319,13 +1319,76 @@ public class Main {
 
 ### 인터페이스
 
-```java
-```
 
+
+```java
+interface ChildInterface {
+  String getName();
+}
+
+class Parent {
+  String name = "";
+  String memo = "";
+
+  Parent(String name) {
+    this.name = name;
+  }
+}
+
+class ChildOne extends Parent implements ChildInterface {
+
+  String name = "ChildOne";
+  ChildOne(String name) {
+    super(name);
+  }
+
+public String getName() {
+  return this.name;
+}
+}
+
+class ChildTwo extends Parent implements ChildInterface {
+
+  String name = "ChildTwo";
+
+  ChildTwo(String name) {
+    super(name);
+    
+  }
+
+  public String getName() {
+    return this.name;
+  }
+}
+
+
+class Another {
+
+  void showChildClass(ChildInterface child) {
+    System.out.println("클래스 이름 : " + child.getName());
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    
+
+    ChildOne classOne = new ChildOne("");
+    ChildTwo classTwo = new ChildTwo("");
+    
+    Another another = new Another();
+    another.showChildClass(classOne);
+    another.showChildClass(classTwo);
+
+  }
+}
+
+```
 - 클래스처럼 단독 파일로 저장.
 - 객체가 한 개 이상의 자료형 타입을 갖게되는 특성을 다형성(Polymorphism)이라고 한다.
 - 인터페이스의 메소드는 인터페이스 안에 이름과 입출력 정의만 있으며, 메소드의 동작은 implements 한 클래스에서 구현 
 - 인터페이스의 메소드는 항상 public으로 구현
+- 
 
 
 
