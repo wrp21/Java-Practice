@@ -18,10 +18,10 @@
 
 <br>
 
-- [java.lang 패키지, 유용한 클래스]
-- java.lang.Object, Math
-- java.util.Objects, Random, regex
-- java.math.BigInteger, BigDecimal
+- [java.lang 패키지, 유용한 클래스](https://github.com/wrp21/Java-Practice/tree/dev/Subject/lang_util%ED%8C%A8%ED%82%A4%EC%A7%80)
+  - java.lang.Object, Math
+  - java.util.Objects, Random, regex
+  - java.math.BigInteger, BigDecimal
 
 <br>
 
