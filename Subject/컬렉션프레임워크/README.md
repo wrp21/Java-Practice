@@ -1,4 +1,6 @@
+[Java 정리 목차](https://github.com/wrp21/Java-Practice)
 
+---
 ### ArrayList
 ---------------------------------------------------
 
@@ -103,6 +105,7 @@ System.out.println(alData5);
 import java.util.HashMap;
 
 HashMap<String, String> map = new HashMap<>();
+
 
 ```
 - 자바의 Map은 파이썬의 딕셔너리와 비슷
