@@ -35,7 +35,7 @@
 <br>
 
 - [람다, 스트림, 제네릭스, Enum, 어노테이션](https://github.com/wrp21/Java-Practice/tree/dev/Subject/%EB%9E%8C%EB%8B%A4_%EC%8A%A4%ED%8A%B8%EB%A6%BC_%EC%A0%9C%EB%84%A4%EB%A6%AD%EC%8A%A4_Eunm_Annotaion)
-- lambda, Stream, Generics, Enum, Annotation
+  - lambda, Stream, Generics, Enum, Annotation
 
 <br>
 
